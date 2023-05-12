@@ -30,6 +30,10 @@ public:
         }
     }
 
+    void set_cell(int x, int y, int val){
+        grid[y][x] = val;
+    }
+
     void create_grid(int radius){
         int grid_width = (2*radius) + 1;
         int grid_height = (2*radius) + 1;
@@ -91,6 +95,8 @@ public:
         y = x;
         grid.set_cell(x,y,2);
     }
+
+    
 };
 
 
