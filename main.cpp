@@ -63,7 +63,27 @@ class Grid{
 
 };
 
+class Ant{
+    
+    public:
 
+        int x, y;
+        // can be "up" , "down" , "left" , "right"
+        string direction;
+
+        Ant(){
+            x = 0;
+            y = 0;
+            direction = "up";
+        }
+
+        void print_ant(){
+            cout << "Ant Information:\n";
+            cout << "   x: " << x << endl << "   y: " << y << endl;
+            cout << "Facing Direction: " << direction << endl;
+        }
+
+};
 
 
 
@@ -72,53 +92,46 @@ class Grid{
 
 
 int main(int argc, char* argv[]) {
-    // // Check for correct number of arguments
-    // if (argc != 3) {
-    //     cout << "Usage: " << argv[0] << " <input_file> <output_file>\n";
-    //     return 1;
-    // }
+    // Check for correct number of arguments
+    if (argc != 3) {
+        cout << "Usage: " << argv[0] << " <input_file> <output_file>\n";
+        return 1;
+    }
 
-    // // Open input file
-    // ifstream input_file(argv[1]);
-    // if (!input_file.is_open()) {
-    //     cout << "Unable to open input file.\n";
-    //     return 1;
-    // }
+    // Open input file
+    ifstream input_file(argv[1]);
+    if (!input_file.is_open()) {
+        cout << "Unable to open input file.\n";
+        return 1;
+    }
 
-    // // Open output file
-    // ofstream output_file(argv[2]);
-    // if (!output_file.is_open()) {
-    //     cout << "Unable to open output file.\n";
-    //     return 1;
-    // }
+    // Open output file
+    ofstream output_file(argv[2]);
+    if (!output_file.is_open()) {
+        cout << "Unable to open output file.\n";
+        return 1;
+    }
 
-    Grid g;
-    g.create_grid(5);
-    g.print_grid();
 
-        vector<string> tokens;
+
     string line, radius, steps;
 
     while(getline(input_file,line)){
         std::string delimiter = " ";
         radius = line.substr(0, line.find(delimiter));
-        steps = line;
+        steps = line.substr(line.find(delimiter) + 1);
     }
 
+    Grid g;
+    g.create_grid(stoi(radius));
+    g.print_grid();
+    cout << steps << endl;
 
-
-
-
+    Ant a;
+    a.print_ant();
 
 
 
 
     return 0;
 }
-
-
-
-
-
-
-
