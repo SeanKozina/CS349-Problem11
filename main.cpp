@@ -8,7 +8,7 @@ using namespace std;
 class Grid{
 
 public:
-    vector<vector<bool>> grid;
+    vector<vector<int>> grid;
 
     int grid_h(){
         return grid.size();
@@ -18,13 +18,13 @@ public:
         return grid[0].size();
     }
 
-    void set_row(int row_coord, bool value){
+    void set_row(int row_coord, int value){
         for (int i = 0; i < grid[row_coord].size(); i++){
             grid[row_coord][i] = value;
         }
     }
 
-    void set_grid(bool value){
+    void set_grid(int value){
         for (int i = 0; i < grid.size(); i++){
             set_row(i, value);
         }
@@ -34,12 +34,12 @@ public:
         int grid_width = (2*radius) + 1;
         int grid_height = (2*radius) + 1;
 
-        vector<vector<bool>> newGrid;
+        vector<vector<int>> newGrid;
         for (int i = 0; i < grid_height; i++){
             // create a new row
-            vector<bool> newRow;
+            vector<int> newRow;
             for (int k = 0; k < grid_width; k++){
-                newRow.push_back(false);
+                newRow.push_back(0);
             }
             // push row
             newGrid.push_back(newRow);
@@ -52,7 +52,7 @@ public:
     void print_grid(){
         for (int i = 0; i < grid_h(); i++){
             // create a new row
-            vector<bool> newRow;
+            vector<int> newRow;
             for (int k = 0; k < grid_w(); k++){
                 cout << "■ ";
             }
@@ -87,7 +87,7 @@ public:
     }
 
     void processAnt(Grid& grid){
-        x = grid.grid_h();
+        x = (grid.grid_h() - 1) / 2;
         y = x;
     }
 };
