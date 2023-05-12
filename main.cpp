@@ -8,16 +8,10 @@ using namespace std;
 class grid{
 
 public:
-    vector<bool>
+    vector<bool>;
 
 
 };
-
-
-
-
-
-
 
 
 
@@ -44,8 +38,14 @@ int main(int argc, char* argv[]) {
 
 
 
+    vector<string> tokens;
+    string line, radius, steps;
 
-
+    while(getline(input_file,line)){
+        std::string delimiter = " ";
+        radius = line.substr(0, line.find(delimiter));
+        steps = line;
+    }
 
 
 
@@ -53,10 +53,5 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-
-
-
-
-
 
 
