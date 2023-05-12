@@ -96,6 +96,15 @@ int main(int argc, char* argv[]) {
     g.create_grid(5);
     g.print_grid();
 
+        vector<string> tokens;
+    string line, radius, steps;
+
+    while(getline(input_file,line)){
+        std::string delimiter = " ";
+        radius = line.substr(0, line.find(delimiter));
+        steps = line;
+    }
+
 
 
 
