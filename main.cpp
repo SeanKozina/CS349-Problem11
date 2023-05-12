@@ -87,8 +87,9 @@ public:
     }
 
     void processAnt(Grid& grid){
-        x = (grid.grid_h() - 1) / 2;
+        x = grid.grid_h();
         y = x;
+        grid.set_cell(x,y,2);
     }
 };
 
